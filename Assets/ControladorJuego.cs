@@ -11,6 +11,21 @@ public class ControladorJuego : MonoBehaviour
     public Button botonOpcion2;
     public Button botonOpcion3;
     public Button botonResponder;
+    
+
+    List<string> frutasConEmojis = new List<string>
+        {
+            "🍎 Manzana",
+            "🍌 Platano",
+            "🍒 Cereza",
+            "🍇 Uva",
+            "🍉 Sandia",
+            "🍍 Pinia",
+            "🍊 Naranja",
+            "🍑 Durazno",
+            "🍓 Fresa",
+            "🍈 Melon"
+        };
 
     /*private*/ int precioOpcion1;
     /*private*/ int precioTotal;
@@ -24,6 +39,10 @@ public class ControladorJuego : MonoBehaviour
 
     void InicializarJuego()
     {
+        // Elegir 3 numeros aleatorios entre 1 y 10
+        int numero1 = Random.Range(1, 11); // Next(minValue, maxValue) -> maxValue es exclusivo
+        int numero2 = Random.Range(1, 11);
+        int numero3 = Random.Range(1, 11);
         
         precioOpcionSeleccionada = 0;
 
@@ -51,10 +70,12 @@ public class ControladorJuego : MonoBehaviour
         };
         opciones = MezclarOpciones(opciones);
 
+        
+
         // Asignar las opciones a los botones
-        botonOpcion1.GetComponentInChildren<Text>().text = "$" + opciones[0].ToString();
-        botonOpcion2.GetComponentInChildren<Text>().text = "$" + opciones[1].ToString();
-        botonOpcion3.GetComponentInChildren<Text>().text = "$" + opciones[2].ToString();
+        botonOpcion1.GetComponentInChildren<Text>().text = "$" + opciones[0].ToString() + frutasConEmojis[numero1];
+        botonOpcion2.GetComponentInChildren<Text>().text = "$" + opciones[1].ToString() + frutasConEmojis[numero2];
+        botonOpcion3.GetComponentInChildren<Text>().text = "$" + opciones[2].ToString() + frutasConEmojis[numero3];
 
         List<A> MezclarOpciones<A>(List<A> lista) //lista generica: puede ser cualquier tipo de dato (lo buscamos en google para saber como hacerlo)
         {
