@@ -11,20 +11,21 @@ public class ControladorJuego : MonoBehaviour
     public Button botonOpcion2;
     public Button botonOpcion3;
     public Button botonResponder;
+    public string BotonPresionadoString;
     
 
     List<string> frutasConEmojis = new List<string>
         {
-            "🍎 Manzana",
-            "🍌 Platano",
-            "🍒 Cereza",
-            "🍇 Uva",
-            "🍉 Sandia",
-            "🍍 Pinia",
-            "🍊 Naranja",
-            "🍑 Durazno",
-            "🍓 Fresa",
-            "🍈 Melon"
+            "Manzana",
+            "Platano",
+            "Cereza",
+            "Uva",
+            "Sandia",
+            "Pinia",
+            "Naranja",
+            "Durazno",
+            "Fresa",
+            "Melon"
         };
 
     /*private*/ int precioOpcion1;
@@ -35,6 +36,19 @@ public class ControladorJuego : MonoBehaviour
     void Start()
     {
         InicializarJuego();
+
+        for (int i = 0; i < 3; i++)
+        {
+            string botonPresionadoNombre = "botonOpcion" + i;
+            if (botonPresionadoNombre == null)
+            botonPresionadoNombre = GetComponent<Button>();
+            botonPresionadoNombre.onClick.AddListener(OnBotonPresionado);
+        }
+    }
+
+    void OnBotonPresionado()
+    {
+        BotonPresionadoString = botonPresionadoNombre.text;
     }
 
     void InicializarJuego()
@@ -71,7 +85,6 @@ public class ControladorJuego : MonoBehaviour
         opciones = MezclarOpciones(opciones);
 
         
-
         // Asignar las opciones a los botones
         botonOpcion1.GetComponentInChildren<Text>().text = "$" + opciones[0].ToString() + frutasConEmojis[numero1];
         botonOpcion2.GetComponentInChildren<Text>().text = "$" + opciones[1].ToString() + frutasConEmojis[numero2];
@@ -90,6 +103,8 @@ public class ControladorJuego : MonoBehaviour
             return lista;
         }
     }
+
+    
 
     void SeleccionarOpcion(int opcion)
     {
