@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 337962589}
   - component: {fileID: 337962588}
   m_Layer: 5
-  m_Name: Txt2
+  m_Name: Txt1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1563,13 +1563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87bc67e993eed24da127ff6f0cce11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoProducto1: {fileID: 0}
-  txtPrecioProducto1: {fileID: 0}
+  textoProducto1: {fileID: 337962588}
+  txtPrecioProducto1: {fileID: 337962588}
   textoPrecioTotal: {fileID: 1989127357}
-  Btn_opcion1: {fileID: 0}
-  Btn_opcion2: {fileID: 0}
-  Btn_opcion3: {fileID: 0}
-  Btn_confirmacionRTA: {fileID: 0}
+  Btn_opcion1: {fileID: 2060774536}
+  Btn_opcion2: {fileID: 2080568581}
+  Btn_opcion3: {fileID: 1577745276}
+  Btn_confirmacionRTA: {fileID: 1662313312}
   panelError: {fileID: 0}
   panelNotificaciones: {fileID: 0}
   resultadoNotificacion: {fileID: 0}
