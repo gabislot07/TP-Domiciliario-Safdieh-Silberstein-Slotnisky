@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class ControladorJuego : MonoBehaviour
 {
+    public GameObject[] objetos;
+    Dictionary<GameObject, int> valor = new Dictionary<GameObject, int>();
+    GameObject RandomObjeto;
+    public Text txt1;
+    public Text txt2;
+    public Text txt3;
     public Text textoProducto1;
     public Text txtPrecioProducto1;
     public Text textoPrecioTotal;
@@ -17,19 +23,39 @@ public class ControladorJuego : MonoBehaviour
     public Button botonJugarOtraVez;
     public Button botonSalir;
 
-    private int precioOpcion1;
-    private int precioTotal;
-    private int precioOpcionSeleccionada;
-    private bool opcionSeleccionada = false;
+    int precioOpcion1;
+    int precioOpcion2;
+    int precioOpcion3;
+    int precioTotal;
+    int precioOpcionSeleccionada;
+    bool opcionSeleccionada = false;
 
     void Start()
     {
         InicializarJuego();
+        CrearValores();
+        ObjetoDesactivar();
+        
 
         // Agregar listeners a los botones de opciones
         Btn_opcion1.onClick.AddListener(() => SeleccionarOpcion(0));
         Btn_opcion2.onClick.AddListener(() => SeleccionarOpcion(1));
         Btn_opcion3.onClick.AddListener(() => SeleccionarOpcion(2));
+
+        // Activa los diferentes objetos en posiciones random
+        ObjetoActivar(580f, 65f, 0);
+        precioTotal = valor[RandomObjeto];
+        textoPrecioTotal.text = "$" + precioTotal.ToString();
+        ObjetoActivar(380f, 65f, 0);
+        precioOpcion1 = valor[RandomObjeto];
+        txt1.text = "$" + precioOpcion1.ToString();
+        ObjetoActivar(180f, 65f, 0);
+        precioOpcion2 = valor[RandomObjeto];
+        txt2.text = "$" + precioOpcion2.ToString();
+        ObjetoActivar(260f, 230f, 0);
+        precioOpcion3 = valor[RandomObjeto];
+        txt3.text = "$" + precioOpcion3.ToString();
+        RandomObjeto = Random.Range(1, 4);
 
         // Listener para el botón Responder
         Btn_confirmacionRTA.onClick.AddListener(Responder);
@@ -71,6 +97,33 @@ public class ControladorJuego : MonoBehaviour
                                          Btn_opcion3.GetComponentInChildren<Text>().text;
         precioOpcionSeleccionada = int.Parse(textoPrecioSeleccionado.Substring(1));
         opcionSeleccionada = true;
+    }
+    void CrearValores()
+    {
+        for (int i = 0;  i < objetos.Length; i++)
+        {
+            valor.Add(objetos[i], random.Range(1,25))
+        }
+    }
+      void ObjetoActivar(float x, float y, float z)
+    {
+        // 
+        int randomIndex;
+        do{
+            randomIndex = Random.Range(0, objetos.Length -1);
+        } while (objetos[randomIndex].active);
+        RandomObjeto = objetos[randomIndex];
+        x = Mathf.Clamp(x, 0f, Screen.width - 100f);
+        y = Mathf.Clamp(y, 0f, Screen.height - 100f);
+        RandomObjeto.transform.position = new Vector3(x, y, z);
+        RandomObjeto.SetActive(true);
+    }
+    void ObjetoDesactivar()
+    {
+     for (int i = 0;  i < objetos.Length; i++)
+     {
+        objetos[i].SetActive(false);
+     }    
     }
 
     void Responder()
