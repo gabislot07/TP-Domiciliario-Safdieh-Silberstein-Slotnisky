@@ -111,31 +111,43 @@ public class ControladorDelJuego : MonoBehaviour
     {
         int IndexRandom1;
         do {
-            IndexRandom1 = Random.Range(0, ObjBtn1.Length - 1);} 
-        ObjBtn1 = ObjBtn1[IndexRandom1];
+            IndexRandom1 = Random.Range(0, ObjBtn1.Length - 1);} while
+        (ObjBtn1 = ObjBtn1[IndexRandom1].activeSelf);
         ObjBtn1.SetActive(true);
         int IndexRandom2;
         do {
-            IndexRandom2 = Random.Range(0, ObjBtn2.Length - 1);} 
-        ObjBtn2 = ObjBtn2[IndexRandom2];
+            IndexRandom2 = Random.Range(0, ObjBtn2.Length - 1);} while
+        (ObjBtn2 = ObjBtn2[IndexRandom2].activeSelf);
         ObjBtn2.SetActive(true);
         int IndexRandom3;
         do {
-            IndexRandom3 = Random.Range(0, ObjBtn3.Length - 1);} 
-        ObjBtn3 = ObjBtn3[IndexRandom3];
+            IndexRandom3 = Random.Range(0, ObjBtn3.Length - 1);} while
+        (ObjBtn3 = ObjBtn3[IndexRandom3].activeSelf);
         ObjBtn3.SetActive(true);
         int IndexPrecio;
         do {
-            IndexPrecio = Random.Range(0, ObjBtnPrecio.Length - 1);}
-        ObjBtnPrecio= ObjBtnPrecio[IndexPrecio];
+            IndexPrecio = Random.Range(0, ObjBtnPrecio.Length - 1);} while
+        (ObjBtnPrecio= ObjBtnPrecio[IndexPrecio].activeSelf);
         ObjBtnPrecio.SetActive(true);
     }
 
     public void OcultarObjetos()
     {
-        for (int i = 0; i < Objetos.Length; i++)
+        for (int i = 0; i < ObjBtn1.Length; i++)
         {
-            Objetos[i].SetActive(false);
+            ObjBtn1[i].SetActive(false);
+        }
+        for (int i = 0; i < ObjBtn2.Length; i++)
+        {
+            ObjBtn2[i].SetActive(false);
+        }
+        for (int i = 0; i < ObjBtn3.Length; i++)
+        {
+            ObjBtn3[i].SetActive(false);
+        }
+        for (int i = 0; i < ObjBtnPrecio.Length; i++)
+        {
+            ObjBtnPrecio[i].SetActive(false);
         }
     }
 
@@ -145,10 +157,10 @@ public class ControladorDelJuego : MonoBehaviour
         int IndexRandom;
         do {
             IndexRandom = Random.Range(0, Objetos.Length - 1);
-        } while (Objetos[IndexRandom].active);
+        } while (Objetos[IndexRandom].activeSelf);
         ObjetoRandom = Objetos[IndexRandom];
-        x = Mathf.Clamp(x, 0f, Screen.width - -212f);
-        y = Mathf.Clamp(y, 0f, Screen.height - -65);
+        x = Mathf.Clamp(x, 0f, Screen.width);
+        y = Mathf.Clamp(y, 0f, Screen.height);
         ObjetoRandom.transform.position = new Vector3(x, y, z);
         ObjetoRandom.SetActive(true);
     }
@@ -276,7 +288,7 @@ public class ControladorDelJuego : MonoBehaviour
     }
     public void BtnConfirmar()
     {
-        if (ChequeoClickBoton == false)
+        if (!ChequeoClickBoton)
         {
             PanelResponder.SetActive(true);
         }
