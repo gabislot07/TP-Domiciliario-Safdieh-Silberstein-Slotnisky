@@ -14,7 +14,7 @@ public class ControladorDelJuego : MonoBehaviour
     public Text Texto2;
     public Text Texto3;
     public Text TextoSuma;
-    public Text Notificacion;
+    public Text noti;
     int PrecioAleatorio;
     int SumaPrecios;
     int ObjetosUtilizados;
@@ -22,10 +22,10 @@ public class ControladorDelJuego : MonoBehaviour
     int Precio1;
     int Precio2;
     int Precio3;
+    bool EstadoRespuesta;
     bool EstadoBoton = false;
     public GameObject PanelResponder;
     public bool ChequeoClickBoton;
-
     public GameObject Panel_notificaciones;
     // Start is called before the first frame update
     void Start()
@@ -103,6 +103,7 @@ public class ControladorDelJuego : MonoBehaviour
     //PONER RTA EN NEGRITA
     public void Objeto1()
     {
+        ChequeoClickBoton = true;
         ObjetosUtilizados = 1;
         Texto1.fontStyle = FontStyle.Bold;
         Texto2.fontStyle = FontStyle.Normal;
@@ -110,6 +111,7 @@ public class ControladorDelJuego : MonoBehaviour
     }
     public void Objeto2()
     {
+        ChequeoClickBoton = true;
         ObjetosUtilizados = 2;
         Texto2.fontStyle = FontStyle.Bold;
         Texto1.fontStyle = FontStyle.Normal;
@@ -117,6 +119,7 @@ public class ControladorDelJuego : MonoBehaviour
     }
     public void Objeto3()
     {
+        ChequeoClickBoton = true;
         ObjetosUtilizados = 3;
         Texto3.fontStyle = FontStyle.Bold;
         Texto2.fontStyle = FontStyle.Normal;
@@ -128,19 +131,17 @@ public class ControladorDelJuego : MonoBehaviour
     {
         EstadoBoton = true;
 
-        
-
         if (ObjetosUtilizados == 1)
         {
             if (PrecioSuma + Precio1 == SumaPrecios)
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Ganaste!!";
+                EstadoRespuesta = true;
             }
             else
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Perdiste!!";
+                EstadoRespuesta = false;
             }
         }
         else if (ObjetosUtilizados == 2)
@@ -148,12 +149,12 @@ public class ControladorDelJuego : MonoBehaviour
             if (PrecioSuma + Precio2 == SumaPrecios)
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Ganaste!!";
+                EstadoRespuesta = true;
             }
             else
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Perdiste!!";
+                EstadoRespuesta = false;
             }
         }
         else if (ObjetosUtilizados == 3)
@@ -161,13 +162,26 @@ public class ControladorDelJuego : MonoBehaviour
             if (PrecioSuma + Precio3 == SumaPrecios)
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Ganaste!!";
+                EstadoRespuesta = true;
             }
             else
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Perdiste!!";
+                EstadoRespuesta = false;
             }
+        }
+        CambioNotificacion();
+    }
+
+    void CambioNotificacion()
+    {
+        if (EstadoRespuesta)
+        {
+            noti.text = "Correcto!";
+        }
+        else
+        {
+            noti.text = "Incorrecto!";
         }
     }
 
@@ -188,7 +202,15 @@ public class ControladorDelJuego : MonoBehaviour
     }
     public void BtnConfirmar()
     {
-        PanelResponder.SetActive(true);
+        if (ChequeoClickBoton == false)
+        {
+            PanelResponder.SetActive(true);
+        }
+        else
+        {
+            Panel_notificaciones.SetActive(true);
+        }
+        
     }
 
 
