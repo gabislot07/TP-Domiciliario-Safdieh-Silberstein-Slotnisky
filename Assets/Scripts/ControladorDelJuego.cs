@@ -35,19 +35,46 @@ public class ControladorDelJuego : MonoBehaviour
         OcultarObjetos();
         PreciosCreados();
 
-
         ActivarProductos(151f, 65f, 0);
         PrecioSuma = precio[ObjetoRandom];
         txt_PreciosSuma.text = "$" + PrecioSuma.ToString();
+
+        List<int> preciosUsados = new List<int>();
+
+        // Asignamos y verificamos los precios para que no se repitan
         ActivarProductos(-212f, -65f, 0);
         Precio1 = precio[ObjetoRandom];
+        while (preciosUsados.Contains(Precio1))
+        {
+            ActivarProductos(-212f, -65f, 0);
+            Precio1 = precio[ObjetoRandom];
+        }
+        preciosUsados.Add(Precio1);
         Texto1.text = "$" + Precio1.ToString();
+
+
         ActivarProductos(-1f, -65f, 0);
         Precio2 = precio[ObjetoRandom];
+        while (preciosUsados.Contains(Precio2))
+        {
+            ActivarProductos(-1f, -65f, 0);
+            Precio2 = precio[ObjetoRandom];
+        }
+        preciosUsados.Add(Precio2);
         Texto2.text = "$" + Precio2.ToString();
+
+
         ActivarProductos(204f, 230f, 0);
         Precio3 = precio[ObjetoRandom];
+        while (preciosUsados.Contains(Precio3))
+        {
+            ActivarProductos(204f, 230f, 0);
+            Precio3 = precio[ObjetoRandom];
+        }
+        preciosUsados.Add(Precio3);
         Texto3.text = "$" + Precio3.ToString();
+
+
         PrecioAleatorio = Random.Range(1, 4);
 
         if (PrecioAleatorio == 1)
@@ -64,6 +91,8 @@ public class ControladorDelJuego : MonoBehaviour
         }
         TextoSuma.text = "$" + SumaPrecios.ToString();
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -95,11 +124,26 @@ public class ControladorDelJuego : MonoBehaviour
 
     void PreciosCreados()
     {
-        for (int i = 0; i < Objetos.Length; i++)
+        List<int> preciosDisponibles = new List<int>();
+        for (int i = 1; i <= 10; i++)
         {
-            precio.Add(Objetos[i], Random.Range(1, 11));
+            preciosDisponibles.Add(i);
+        }
+
+        foreach (var objeto in Objetos)
+        {
+            if (preciosDisponibles.Count == 0)
+            {
+                break;
+            }
+
+            int randomIndex = Random.Range(0, preciosDisponibles.Count);
+            int precioRandom = preciosDisponibles[randomIndex];
+            preciosDisponibles.RemoveAt(randomIndex);
+            precio[objeto] = precioRandom;
         }
     }
+
     //PONER RTA EN NEGRITA
     public void Objeto1()
     {
@@ -198,7 +242,6 @@ public class ControladorDelJuego : MonoBehaviour
     public void ChequeaSeleccionOpcion()
     {
         PanelResponder.SetActive(false);
-        SceneManager.LoadScene("EscenaPrincipal");
     }
     public void BtnConfirmar()
     {
@@ -208,6 +251,7 @@ public class ControladorDelJuego : MonoBehaviour
         }
         else
         {
+            AccionBotones();
             Panel_notificaciones.SetActive(true);
         }
         
