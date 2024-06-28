@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ControladorDelJuego : MonoBehaviour
 {
@@ -22,14 +23,18 @@ public class ControladorDelJuego : MonoBehaviour
     int Precio2;
     int Precio3;
     bool EstadoBoton = false;
+    public GameObject PanelResponder;
+    public bool ChequeoClickBoton;
 
     public GameObject Panel_notificaciones;
     // Start is called before the first frame update
     void Start()
     {
         Panel_notificaciones.SetActive(false);
+        PanelResponder.SetActive(false);
         OcultarObjetos();
         PreciosCreados();
+
 
         ActivarProductos(580f, 65f, 0);
         PrecioSuma = precio[ObjetoRandom];
@@ -63,7 +68,7 @@ public class ControladorDelJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        chequeoClickeoOpcion();
     }
 
     public void OcultarObjetos()
@@ -95,7 +100,7 @@ public class ControladorDelJuego : MonoBehaviour
             precio.Add(Objetos[i], Random.Range(1, 11));
         }
     }
-
+    //PONER RTA EN NEGRITA
     public void Objeto1()
     {
         ObjetosUtilizados = 1;
@@ -116,23 +121,26 @@ public class ControladorDelJuego : MonoBehaviour
         Texto3.fontStyle = FontStyle.Bold;
         Texto2.fontStyle = FontStyle.Normal;
         Texto1.fontStyle = FontStyle.Normal;
+
     }
 
     public void AccionBotones()
     {
         EstadoBoton = true;
 
+        
+
         if (ObjetosUtilizados == 1)
         {
             if (PrecioSuma + Precio1 == SumaPrecios)
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Correcto!!";
+                Notificacion.text = "Ganaste!!";
             }
             else
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Incorrecto!!";
+                Notificacion.text = "Perdiste!!";
             }
         }
         else if (ObjetosUtilizados == 2)
@@ -140,12 +148,12 @@ public class ControladorDelJuego : MonoBehaviour
             if (PrecioSuma + Precio2 == SumaPrecios)
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Correcto!!";
+                Notificacion.text = "Ganaste!!";
             }
             else
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Incorrecto!!";
+                Notificacion.text = "Perdiste!!";
             }
         }
         else if (ObjetosUtilizados == 3)
@@ -153,13 +161,39 @@ public class ControladorDelJuego : MonoBehaviour
             if (PrecioSuma + Precio3 == SumaPrecios)
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Correcto!!";
+                Notificacion.text = "Ganaste!!";
             }
             else
             {
                 Panel_notificaciones.SetActive(true);
-                Notificacion.text = "Incorrecto!!";
+                Notificacion.text = "Perdiste!!";
             }
         }
     }
+
+    public void CambioDeEscenaOtraVez()
+    {
+        SceneManager.LoadScene("EscenaPrincipal");
+    }
+
+    public void CambioDeEscenaSalir()
+    {
+        SceneManager.LoadScene("EscenaInicio");
+    }
+
+    public void ChequeaSeleccionOpcion()
+    {
+        PanelResponder.SetActive(false);
+        SceneManager.LoadScene("EscenaPrincipal");
+    }
+    public void chequeoClickeoOpcion()
+    {
+        if ()
+    }
+    public void BtnConfirmar()
+    {
+        PanelResponder.SetActive(true);
+    }
+
+
 }
