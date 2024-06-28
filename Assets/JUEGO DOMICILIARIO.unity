@@ -1102,13 +1102,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87bc67e993eed24da127ff6f0cce11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetos: []
+  txt1: {fileID: 0}
+  txt2: {fileID: 0}
+  txt3: {fileID: 0}
   textoProducto1: {fileID: 753206964}
   txtPrecioProducto1: {fileID: 753206964}
   textoPrecioTotal: {fileID: 1989127357}
-  botonOpcion1: {fileID: 2060774536}
-  botonOpcion2: {fileID: 2080568581}
-  botonOpcion3: {fileID: 1577745276}
-  botonResponder: {fileID: 422764836}
+  Btn_opcion1: {fileID: 0}
+  Btn_opcion2: {fileID: 0}
+  Btn_opcion3: {fileID: 0}
+  Btn_confirmacionRTA: {fileID: 0}
+  panelError: {fileID: 0}
+  panelNotificaciones: {fileID: 0}
+  resultadoNotificacion: {fileID: 0}
+  botonJugarOtraVez: {fileID: 0}
+  botonSalir: {fileID: 0}
 --- !u!1 &1059249208
 GameObject:
   m_ObjectHideFlags: 0
