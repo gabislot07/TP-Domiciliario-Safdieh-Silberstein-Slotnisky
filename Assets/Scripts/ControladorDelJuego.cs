@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ControladorDelJuego : MonoBehaviour
 {
+    public GameObject[] ObjBtn1;
+    public GameObject[] ObjBtn2;
+    public GameObject[] ObjBtn3;
+    public GameObject[] ObjBtnPrecio;
     public GameObject[] Objetos;
     Dictionary<GameObject, int> precio = new Dictionary<GameObject, int>();
     GameObject ObjetoRandom;
@@ -34,12 +38,15 @@ public class ControladorDelJuego : MonoBehaviour
         PanelResponder.SetActive(false);
         OcultarObjetos();
         PreciosCreados();
+        RandomObjAparecer();
 
         ActivarProductos(151f, 65f, 0);
         PrecioSuma = precio[ObjetoRandom];
         txt_PreciosSuma.text = "$" + PrecioSuma.ToString();
 
         List<int> preciosUsados = new List<int>();
+
+
 
         // Asignamos y verificamos los precios para que no se repitan
         ActivarProductos(-212f, -65f, 0);
@@ -100,6 +107,30 @@ public class ControladorDelJuego : MonoBehaviour
         
     }
 
+    public void RandomObjAparecer(float x, float y, float z)
+    {
+        int IndexRandom1;
+        do {
+            IndexRandom1 = Random.Range(0, ObjBtn1.Length - 1);} 
+        ObjBtn1 = ObjBtn1[IndexRandom1];
+        ObjBtn1.SetActive(true);
+        int IndexRandom2;
+        do {
+            IndexRandom2 = Random.Range(0, ObjBtn2.Length - 1);} 
+        ObjBtn2 = ObjBtn2[IndexRandom2];
+        ObjBtn2.SetActive(true);
+        int IndexRandom3;
+        do {
+            IndexRandom3 = Random.Range(0, ObjBtn3.Length - 1);} 
+        ObjBtn3 = ObjBtn3[IndexRandom3];
+        ObjBtn3.SetActive(true);
+        int IndexPrecio;
+        do {
+            IndexPrecio = Random.Range(0, ObjBtnPrecio.Length - 1);}
+        ObjBtnPrecio= ObjBtnPrecio[IndexPrecio];
+        ObjBtnPrecio.SetActive(true);
+    }
+
     public void OcultarObjetos()
     {
         for (int i = 0; i < Objetos.Length; i++)
@@ -116,8 +147,8 @@ public class ControladorDelJuego : MonoBehaviour
             IndexRandom = Random.Range(0, Objetos.Length - 1);
         } while (Objetos[IndexRandom].active);
         ObjetoRandom = Objetos[IndexRandom];
-        x = Mathf.Clamp(x, 0f, Screen.width - 100f);
-        y = Mathf.Clamp(y, 0f, Screen.height - 100f);
+        x = Mathf.Clamp(x, 0f, Screen.width - -212f);
+        y = Mathf.Clamp(y, 0f, Screen.height - -65);
         ObjetoRandom.transform.position = new Vector3(x, y, z);
         ObjetoRandom.SetActive(true);
     }
