@@ -68,7 +68,7 @@ public class ControladorDelJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        chequeoClickeoOpcion();
+        
     }
 
     public void OcultarObjetos()
@@ -83,8 +83,8 @@ public class ControladorDelJuego : MonoBehaviour
     {
         // 
         int IndexRandom;
-        do{
-            IndexRandom = Random.Range(0, Objetos.Length -1);
+        do {
+            IndexRandom = Random.Range(0, Objetos.Length - 1);
         } while (Objetos[IndexRandom].active);
         ObjetoRandom = Objetos[IndexRandom];
         x = Mathf.Clamp(x, 0f, Screen.width - 100f);
@@ -185,10 +185,6 @@ public class ControladorDelJuego : MonoBehaviour
     {
         PanelResponder.SetActive(false);
         SceneManager.LoadScene("EscenaPrincipal");
-    }
-    public void chequeoClickeoOpcion()
-    {
-        if ()
     }
     public void BtnConfirmar()
     {

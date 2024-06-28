@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Niebieski_Matias_48461727
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b328d6773e750ae40bbc80424b59a6c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b328d6773e750ae40bbc80424b59a6c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -87.64971
@@ -696,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 830939792de01c54486e1fa5b1b9fcd2, type: 3}
       propertyPath: m_Name
       value: Grynfeld_Matias_48519558
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 830939792de01c54486e1fa5b1b9fcd2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 830939792de01c54486e1fa5b1b9fcd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1520,6 +1528,7 @@ MonoBehaviour:
   TextoSuma: {fileID: 1989127357}
   Notificacion: {fileID: 152613871}
   PanelResponder: {fileID: 691333086}
+  ChequeoClickBoton: 0
   Panel_notificaciones: {fileID: 1380334012}
 --- !u!4 &704235667
 Transform:
@@ -1545,6 +1554,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b1e1fe6480bbebc4ebeaa4809350565d, type: 3}
       propertyPath: m_Name
       value: Lerman_Lautaro_48311063
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b1e1fe6480bbebc4ebeaa4809350565d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b1e1fe6480bbebc4ebeaa4809350565d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1829,6 +1842,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Michanie_Maia_48521774
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7e089aac64518a949abe9cc3f192a58e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7e089aac64518a949abe9cc3f192a58e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -162.1
@@ -2008,7 +2025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 31.700012, y: -13.399979}
+  m_AnchoredPosition: {x: 31.700012, y: -13.399963}
   m_SizeDelta: {x: -150.23297, y: -88.96326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157273745
@@ -2056,6 +2073,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ebd8aa057e3deaf4da7c359a63df2607, type: 3}
       propertyPath: m_Name
       value: Hauser_Tomas_48386206
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ebd8aa057e3deaf4da7c359a63df2607, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebd8aa057e3deaf4da7c359a63df2607, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2733,6 +2754,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 48a4e4f36d846fe4e8478582a3a8ec0e, type: 3}
       propertyPath: m_Name
       value: Huberman_Sebastian_48461823
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 48a4e4f36d846fe4e8478582a3a8ec0e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 48a4e4f36d846fe4e8478582a3a8ec0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3425,6 +3450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wraage_Theo_48039362
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a13b4d12726bf8747b0637e47a543298, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a13b4d12726bf8747b0637e47a543298, type: 3}
       propertyPath: m_LocalPosition.x
       value: -78.59892
@@ -3497,6 +3526,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 33fce4a362682ed4db6d060d64b1c249, type: 3}
       propertyPath: m_Name
       value: Safdieh_Oliver Adolfo_48245643
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 33fce4a362682ed4db6d060d64b1c249, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33fce4a362682ed4db6d060d64b1c249, type: 3}
       propertyPath: m_LocalPosition.x
