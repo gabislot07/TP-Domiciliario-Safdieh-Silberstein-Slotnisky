@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class ControladorJuego : MonoBehaviour
 {
@@ -55,7 +56,7 @@ public class ControladorJuego : MonoBehaviour
         ObjetoActivar(260f, 230f, 0);
         precioOpcion3 = valor[RandomObjeto];
         txt3.text = "$" + precioOpcion3.ToString();
-        RandomObjeto = Random.Range(1, 4);
+        /* RandomObjeto = Random.Range(1, 4); */
 
         // Listener para el botón Responder
         Btn_confirmacionRTA.onClick.AddListener(Responder);
@@ -102,7 +103,7 @@ public class ControladorJuego : MonoBehaviour
     {
         for (int i = 0;  i < objetos.Length; i++)
         {
-            valor.Add(objetos[i], random.Range(1,25))
+            /* valor.Add(objetos[i], random.Range(1,25)); */
         }
     }
       void ObjetoActivar(float x, float y, float z)
