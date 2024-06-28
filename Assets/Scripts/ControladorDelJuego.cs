@@ -36,16 +36,16 @@ public class ControladorDelJuego : MonoBehaviour
         PreciosCreados();
 
 
-        ActivarProductos(580f, 65f, 0);
+        ActivarProductos(151f, 65f, 0);
         PrecioSuma = precio[ObjetoRandom];
         txt_PreciosSuma.text = "$" + PrecioSuma.ToString();
-        ActivarProductos(380f, 65f, 0);
+        ActivarProductos(-212f, -65f, 0);
         Precio1 = precio[ObjetoRandom];
         Texto1.text = "$" + Precio1.ToString();
-        ActivarProductos(180f, 65f, 0);
+        ActivarProductos(-1f, -65f, 0);
         Precio2 = precio[ObjetoRandom];
         Texto2.text = "$" + Precio2.ToString();
-        ActivarProductos(260f, 230f, 0);
+        ActivarProductos(204f, 230f, 0);
         Precio3 = precio[ObjetoRandom];
         Texto3.text = "$" + Precio3.ToString();
         PrecioAleatorio = Random.Range(1, 4);
@@ -81,7 +81,7 @@ public class ControladorDelJuego : MonoBehaviour
 
     void ActivarProductos(float x, float y, float z)
     {
-        // 
+        //
         int IndexRandom;
         do {
             IndexRandom = Random.Range(0, Objetos.Length - 1);
