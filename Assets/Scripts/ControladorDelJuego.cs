@@ -107,28 +107,35 @@ public class ControladorDelJuego : MonoBehaviour
         
     }
 
-    public void RandomObjAparecer(float x, float y, float z)
+    public void RandomObjAparecer()
     {
         int IndexRandom1;
-        do {
-            IndexRandom1 = Random.Range(0, ObjBtn1.Length - 1);} while
-        (ObjBtn1 = ObjBtn1[IndexRandom1].activeSelf);
-        ObjBtn1.SetActive(true);
+        do
+        {
+            IndexRandom1 = Random.Range(0, ObjBtn1.Length - 1);
+        } while (ObjBtn1[IndexRandom1].activeSelf);
+        ObjBtn1[IndexRandom1].SetActive(true);
+
         int IndexRandom2;
-        do {
-            IndexRandom2 = Random.Range(0, ObjBtn2.Length - 1);} while
-        (ObjBtn2 = ObjBtn2[IndexRandom2].activeSelf);
-        ObjBtn2.SetActive(true);
+        do
+        {
+            IndexRandom2 = Random.Range(0, ObjBtn2.Length - 1);
+        } while (ObjBtn2[IndexRandom2].activeSelf);
+        ObjBtn2[IndexRandom2].SetActive(true);
+
         int IndexRandom3;
-        do {
-            IndexRandom3 = Random.Range(0, ObjBtn3.Length - 1);} while
-        (ObjBtn3 = ObjBtn3[IndexRandom3].activeSelf);
-        ObjBtn3.SetActive(true);
+        do
+        {
+            IndexRandom3 = Random.Range(0, ObjBtn3.Length - 1);
+        } while (ObjBtn3[IndexRandom3].activeSelf);
+        ObjBtn3[IndexRandom3].SetActive(true);
+
         int IndexPrecio;
-        do {
-            IndexPrecio = Random.Range(0, ObjBtnPrecio.Length - 1);} while
-        (ObjBtnPrecio= ObjBtnPrecio[IndexPrecio].activeSelf);
-        ObjBtnPrecio.SetActive(true);
+        do
+        {
+            IndexPrecio = Random.Range(0, ObjBtnPrecio.Length - 1);
+        } while (ObjBtnPrecio[IndexPrecio].activeSelf);
+        ObjBtnPrecio[IndexPrecio].SetActive(true);
     }
 
     public void OcultarObjetos()
@@ -229,6 +236,7 @@ public class ControladorDelJuego : MonoBehaviour
             {
                 Panel_notificaciones.SetActive(true);
                 EstadoRespuesta = false;
+                
             }
         }
         else if (ObjetosUtilizados == 2)
@@ -237,6 +245,7 @@ public class ControladorDelJuego : MonoBehaviour
             {
                 Panel_notificaciones.SetActive(true);
                 EstadoRespuesta = true;
+                
             }
             else
             {
@@ -291,11 +300,13 @@ public class ControladorDelJuego : MonoBehaviour
         if (!ChequeoClickBoton)
         {
             PanelResponder.SetActive(true);
+            OcultarObjetos();
         }
         else
         {
             AccionBotones();
             Panel_notificaciones.SetActive(true);
+            OcultarObjetos();
         }
         
     }
